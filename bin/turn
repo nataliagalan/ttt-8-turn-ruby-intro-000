@@ -1,1 +1,26 @@
 #!/usr/bin/env ruby
+require_relative '../lib/turn'
+
+board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+
+puts "Welcome to Tic Tac Toe!"
+display_board(board)
+puts "Please enter 1 - 9"
+input = gets.strip
+index = input_to_index(input)
+move(board, index, player = "X")
+turn(board)
+valid_move?(board, index)
+move(board, index, current_player(board))
+current_player(board)
+
+WIN_COMBINATIONS = [
+[0,1,2], # top_row
+[3,4,5], # middle_row
+[6,7,8], # bottom_row
+[0,3,6], # left_column
+[1,4,7], # center_column
+[2,5,8], # right_column
+[0,4,8], # left_diagonal
+[6,4,2] # right_diagonal
+]
