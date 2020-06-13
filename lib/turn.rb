@@ -38,8 +38,6 @@ def turn(board)
       move(board, index, player = "X")
       display_board(board)
    else
-     puts "Please enter 1-9:"
-     user_input = gets.strip
-     index = input_to_index(user_input)
+     turn(board)
 end
 end
